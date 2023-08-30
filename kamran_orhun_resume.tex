@@ -54,6 +54,12 @@
   }
 }
 
+\newcommand{\resumeProj}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
 % Just in case someone needs a heading that does not need to be in a list
 \newcommand{\resumeHeading}[4]{
     \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
@@ -70,13 +76,20 @@
     \end{tabular*}\vspace{-5pt}
 }
 
+\newcommand{\projectSubheading}[1]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1}
+    \end{tabular*}\vspace{-5pt}
+}
+
 \newcommand{\resumeSubSubheading}[2]{
     \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
       \textit{\small#1} & \textit{\small #2} \\
     \end{tabular*}\vspace{-5pt}
 }
 
-\newcommand{\resumeSubItem}[2]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[2]{\resumeProj{#1}{#2}\vspace{-4pt}}
 
 \renewcommand{\labelitemii}{$\circ$}
 
@@ -93,7 +106,9 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{{\Large Kamran Orhun}} & Email : \href{mailto:kamuran12580@gmail.com}{kamuran12580@gmail.com}\\
+  \textbf{{\Large Kamran Orhun}} \\ 
+  \small{Email : \href{mailto:kamuran12580@gmail.com}{kamuran12580@gmail.com}}&\small{Github: \href{https://github.com/Kapperchino}{https://github.com/Kapperchino}} \\
+  \small{Location: Washington DC} & \small{Linkedin: \href{https://www.linkedin.com/in/kamran-orhun-578078120/}{https://www.linkedin.com/in/kamran-orhun-578078120/}}
 \end{tabular*}
 
 
@@ -102,23 +117,34 @@
   \resumeSubHeadingListStart
 
   \resumeSubheading
-  {Oracle}{Remote}
-  {Senior Member of Technical Staff}{May 2020 - November 2021}
+  {Oracle}{Austin, TX}
+  {Senior Member of Technical Staff}{December 2021 - current}
   \resumeItemListStart
     \resumeItem
-      {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models. Worked on APIs and performance for training models on Tensor Processing Units (TPU).}
+      {Designed and shipped a multi tenant streaming service to lower streaming cost by over 40\% for the fusion org.}
     \resumeItem
-      {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
+      {Developed multiple scalable distributed system to run in kubernetes with telemetry including metrics and tracing.}
+    \resumeItem
+      {Designed and implemented a stateful service using rocksDB to increase thoughput by over 5x and decreasing latency by over 50\%.}
+    \resumeItem
+      {Designed and implemented a control plane resource manager to dynamiclly allocate and scale resources based on load.}
+    \resumeItem
+      {Used Java for the services, and used GRPC and REST depending on the services.}
   \resumeItemListEnd
-
     \resumeSubheading
       {Amazon}{Seattle, WA}
-      {Software Development Engineer}{May 2020 - November 2021}
+      {Software Development Engineer}{May 2020 - October 2021}
       \resumeItemListStart
         \resumeItem
-          {TensorFlow is an open source software library for numerical computation using data flow graphs; primarily used for training deep learning models. Worked on APIs and performance for training models on Tensor Processing Units (TPU).}
+          {Designed and shipped a cross team project to support scaling Amazon Ad Servers for more than 300\%.}
         \resumeItem
-          {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines, as well as a set of language-specific SDKs for constructing pipelines and runners.}
+          {Maintained and developed distributed streaming systems for Amazon ad servers.}
+        \resumeItem
+          {Scaled and maintained one of the world’s largest Kafka Clusters.}
+        \resumeItem
+          {Resolved issues affecting fortune 500 companies.}
+        \resumeItem
+          {Designed, programmed, tested, and shipped micro services to reduce noisy neighbor issues by over 25\%.}
       \resumeItemListEnd
   \resumeSubHeadingListEnd
 
@@ -126,25 +152,45 @@
 %-----------PROJECTS-----------------
 \section{Projects}
  \resumeSubHeadingListStart
-    \resumeSubItem
-      {Open source python library for financial data analysis and machine learning for finance.}
-    \resumeSubItem
-      {Data Visualization of Git Log data using D3 to analyze project trends over time.}
-    \resumeSubItem
-      {Music and Movie recommender systems using collaborative filtering on public datasets.}
-    \resumeSubItem
-      {Book that gives step by step instructions on setting up developer environment on Mac OS.}
+    \projectSubheading {Jet Streaming System}
+        \resumeItemListStart
+          \resumeItem
+            {Distributed streaming system similar to Kafka.}
+          \resumeItem
+            {Used raft protocol for consensus and replication.}
+          \resumeItem
+            {Used gossip protocol for node discovery and meta data propagation.}
+          \resumeItem
+            {Built with golang and badger for disk storage.}
+      \resumeItemListEnd
+    \projectSubheading {Subspace}
+      \resumeItemListStart
+        \resumeItem
+          {Social media similar to reddit with threads and communities.}
+        \resumeItem
+          {Using Flutter for frontend and golang for backend.}
+        \resumeItem
+          {Using postgres and S3 for storage.}
+    \resumeItemListEnd
+    \projectSubheading {Microsoft Terminal Contributor}
+      \resumeItemListStart
+        \resumeItem
+          {Added new functionalities and fixed an issue for Microsoft Terminal.}
+    \resumeItemListEnd
   \resumeSubHeadingListEnd
 
+%--------PROGRAMMING SKILLS------------
 \section{Programming Skills}
  \resumeSubHeadingListStart
    \item{
-     \textbf{Languages}{: Scala, Python, Javascript, C++, SQL, Java}
-     \hfill
-     \textbf{Technologies}{: AWS, Play, React, Kafka, GCE}
+     \textbf{Languages}{: Java, Go, C/C++, Javascript, SQL, C\#, Python, Bash }
    }
+   \item{     
+    \textbf{Technologies}{: AWS, OCI(Oracle Cloud), GCE, Kafka, Kinesis, Kubernetes, DynamoDB, GRPC,
+     Containers, NoSQL, Git, Unix, Docker, Springboot, Raft, OpenTelemetry, REST}
+   }  
  \resumeSubHeadingListEnd
-
+   
 %-----------EDUCATION-----------------
 \section{Education}
   \resumeSubHeadingListStart
@@ -152,6 +198,4 @@
       {George Mason University}{Fairfax,VA}
       {Bachelor of Science in Computer Science}{Sep. 2016 -- May. 2020}
   \resumeSubHeadingListEnd
-
-
 \end{document}
